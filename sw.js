@@ -1,10 +1,10 @@
 // Service worker: ให้ TEACHERKIT ใช้งานได้แม้ไม่มีอินเทอร์เน็ต
 // ใช้กลยุทธ์ network-first เพื่อให้ได้เวอร์ชันล่าสุดเสมอเมื่อออนไลน์
-const CACHE = 'teacherkit-v2';
+const CACHE = 'teacherkit-v3';
 const ASSETS = [
   './', 'index.html', 'css/style.css', 'manifest.webmanifest', 'assets/icon.svg',
   'js/app.js', 'js/store.js', 'js/util.js', 'js/vendor/qrcode.js',
-  ...['classes', 'picker', 'groups', 'timer', 'attendance', 'grades', 'scoreboard', 'noise', 'seating', 'random', 'qr'].map(t => `js/tools/${t}.js`),
+  ...['classes', 'picker', 'groups', 'timer', 'attendance', 'grades', 'scoreboard', 'noise', 'seating', 'random', 'qr', 'schedule', 'behavior', 'homework', 'exam', 'teachlog'].map(t => `js/tools/${t}.js`),
 ];
 
 self.addEventListener('install', e => {

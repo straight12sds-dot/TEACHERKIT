@@ -213,6 +213,12 @@ td input[type="number"] { width: 80px; }
 .roll { animation: shake .35s; }
 @keyframes shake { 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
 
+/* Timetable */
+.tt th, .tt td { vertical-align: top; }
+.tt textarea { min-width: 110px; font-size: .85rem; padding: 6px; }
+.tt input[type="time"] { width: auto; padding: 2px 4px; font-size: .78rem; }
+.no-wrap { flex-wrap: nowrap; gap: 2px; }
+
 /* Toast */
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 10px; opacity: 0; pointer-events: none; transition: .2s; z-index: 50; max-width: calc(100vw - 32px); }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }

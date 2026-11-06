@@ -61,6 +61,8 @@ export function addClass(name, names = []) {
 export function deleteClass(id) {
   state.classes = state.classes.filter(c => c.id !== id);
   for (const k of ['attendance', 'grades', 'seating']) delete state[k][id];
+  // ข้อมูลของเครื่องมือที่แยกตามห้อง
+  for (const t of Object.values(state.tools)) if (t && typeof t === 'object' && id in t) delete t[id];
   if (!state.classes.length) state.classes.push({ id: uid(), name: 'ห้องเรียนใหม่', students: [] });
   if (!state.classes.find(c => c.id === state.currentId)) state.currentId = state.classes[0].id;
   save();

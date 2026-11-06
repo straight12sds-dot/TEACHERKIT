@@ -12,8 +12,13 @@ import noise from './tools/noise.js';
 import seating from './tools/seating.js';
 import random from './tools/random.js';
 import qr from './tools/qr.js';
+import schedule from './tools/schedule.js';
+import behavior from './tools/behavior.js';
+import homework from './tools/homework.js';
+import exam from './tools/exam.js';
+import teachlog from './tools/teachlog.js';
 
-export const TOOLS = [picker, groups, timer, attendance, grades, scoreboard, noise, seating, random, qr];
+export const TOOLS = [picker, groups, timer, attendance, homework, grades, exam, behavior, schedule, teachlog, scoreboard, noise, seating, random, qr];
 const ROUTES = Object.fromEntries([...TOOLS, classes].map(t => [t.id, t]));
 
 const app = $('#app');
