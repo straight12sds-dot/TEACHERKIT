@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEACHERKIT — สุดยอดเครื่องมือสำหรับครู</title>
+  <meta name="description" content="ชุดเครื่องมือฟรีสำหรับครู: สุ่มชื่อ แบ่งกลุ่ม จับเวลา เช็คชื่อ คำนวณเกรด คะแนนทีม วัดเสียง ผังที่นั่ง และอื่น ๆ ใช้งานได้ทันทีบนเบราว์เซอร์">
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar no-print">
+    <a href="#/" class="brand" aria-label="หน้าแรก TEACHERKIT">
+      <img src="assets/icon.svg" alt="" width="32" height="32">
+      <span>TEACHER<b>KIT</b></span>
+    </a>
+    <div class="topbar-right">
+      <label class="class-select">
+        <span class="sr-only">เลือกห้องเรียน</span>
+        <select id="classSelect" title="เลือกห้องเรียน"></select>
+      </label>
+      <a href="#/classes" class="btn btn-ghost" title="จัดการห้องเรียน">👥 <span class="hide-sm">ห้องเรียน</span></a>
+      <button id="themeToggle" class="btn btn-ghost" title="สลับโหมดมืด/สว่าง" aria-label="สลับโหมดมืด/สว่าง">🌓</button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="footer no-print">
+    TEACHERKIT · โอเพนซอร์ส ใช้ฟรี · ข้อมูลทั้งหมดเก็บไว้ในเครื่องของคุณเท่านั้น
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
