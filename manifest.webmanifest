@@ -1,0 +1,13 @@
+{
+  "name": "TEACHERKIT — สุดยอดเครื่องมือสำหรับครู",
+  "short_name": "TEACHERKIT",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f6fb",
+  "theme_color": "#4f46e5",
+  "lang": "th",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
