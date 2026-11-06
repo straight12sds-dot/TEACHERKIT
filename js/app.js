@@ -11,8 +11,9 @@ import scoreboard from './tools/scoreboard.js';
 import noise from './tools/noise.js';
 import seating from './tools/seating.js';
 import random from './tools/random.js';
+import qr from './tools/qr.js';
 
-export const TOOLS = [picker, groups, timer, attendance, grades, scoreboard, noise, seating, random];
+export const TOOLS = [picker, groups, timer, attendance, grades, scoreboard, noise, seating, random, qr];
 const ROUTES = Object.fromEntries([...TOOLS, classes].map(t => [t.id, t]));
 
 const app = $('#app');
