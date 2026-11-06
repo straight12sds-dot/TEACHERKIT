@@ -14,28 +14,70 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#app">ข้ามไปเนื้อหา</a>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="ui-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="ui-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></symbol>
+    <symbol id="ui-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18m-13 5h2m4 0h2"/></symbol>
+    <symbol id="ui-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ui-check" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="m7 12 3 3 7-7"/></symbol>
+    <symbol id="ui-shuffle" viewBox="0 0 24 24"><path d="M3 6h3c5 0 7 12 12 12h3m-4-4 4 4-4 4M3 18h3c2 0 4-2 5-4m2-4c1-2 3-4 5-4h3m-4-4 4 4-4 4"/></symbol>
+    <symbol id="ui-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="ui-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
+    <symbol id="ui-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="ui-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="ui-moon" viewBox="0 0 24 24"><path d="M21 13a9 9 0 0 1-10-10A9 9 0 1 0 21 13Z"/></symbol>
+    <symbol id="ui-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="ui-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></symbol>
+  </svg>
   <header class="topbar no-print">
     <a href="#/" class="brand" aria-label="หน้าแรก TEACHERKIT">
       <img src="assets/icon.svg" alt="" width="32" height="32">
-      <span>TEACHER<b>KIT</b></span>
+      <span class="brand-copy"><span>TEACHER<b>KIT</b></span><small>ผู้ช่วยครูในทุกคาบเรียน</small></span>
     </a>
     <div class="topbar-right">
       <label class="class-select">
-        <span class="sr-only">เลือกห้องเรียน</span>
+        <svg class="ui-icon" aria-hidden="true"><use href="#ui-people"/></svg>
+        <span class="sr-only">เลือกห้องเรียนปัจจุบัน</span>
         <select id="classSelect" title="เลือกห้องเรียน"></select>
       </label>
-      <a href="#/classes" class="btn btn-ghost" title="จัดการห้องเรียน">👥 <span class="hide-sm">ห้องเรียน</span></a>
-      <button id="themeToggle" class="btn btn-ghost" title="สลับโหมดมืด/สว่าง" aria-label="สลับโหมดมืด/สว่าง">🌓</button>
+      <a href="#/classes" class="btn class-manage" title="จัดการห้องเรียน">จัดการห้องเรียน</a>
+      <button id="themeToggle" class="btn btn-ghost theme-toggle" title="สลับโหมดมืด/สว่าง" aria-label="สลับโหมดมืด/สว่าง"><svg class="ui-icon" aria-hidden="true"><use href="#ui-moon"/></svg></button>
     </div>
   </header>
 
-  <main id="app" tabindex="-1"></main>
+  <div class="workspace">
+    <aside class="sidebar no-print" aria-label="เมนูหลัก">
+      <nav class="sidebar-nav">
+        <p class="nav-label">พื้นที่ทำงาน</p>
+        <a class="nav-link" href="#/" data-nav="home"><svg class="ui-icon" aria-hidden="true"><use href="#ui-grid"/></svg>เครื่องมือทั้งหมด</a>
+        <a class="nav-link" href="#/classes" data-nav="classes"><svg class="ui-icon" aria-hidden="true"><use href="#ui-people"/></svg>ห้องเรียนของฉัน</a>
+        <a class="nav-link" href="#/schedule" data-nav="schedule"><svg class="ui-icon" aria-hidden="true"><use href="#ui-calendar"/></svg>ตารางสอน</a>
+        <p class="nav-label nav-label-spaced">ใช้บ่อยในห้องเรียน</p>
+        <a class="nav-link" href="#/attendance" data-nav="attendance"><svg class="ui-icon" aria-hidden="true"><use href="#ui-check"/></svg>เช็คชื่อเข้าเรียน</a>
+        <a class="nav-link" href="#/picker" data-nav="picker"><svg class="ui-icon" aria-hidden="true"><use href="#ui-shuffle"/></svg>สุ่มชื่อนักเรียน</a>
+        <a class="nav-link" href="#/timer" data-nav="timer"><svg class="ui-icon" aria-hidden="true"><use href="#ui-clock"/></svg>จับเวลา</a>
+      </nav>
+      <div class="sidebar-note">
+        <svg class="ui-icon" aria-hidden="true"><use href="#ui-shield"/></svg>
+        <b>พื้นที่ส่วนตัวของคุณครู</b>
+        <p>ข้อมูลอยู่ในเครื่องนี้<br>สำรองไฟล์ได้ที่หน้าห้องเรียน</p>
+        <a href="#/classes">ไปสำรองข้อมูล <svg class="ui-icon" aria-hidden="true"><use href="#ui-arrow"/></svg></a>
+      </div>
+      <span class="sidebar-signature">MADE FOR TEACHERS, WITH CARE.</span>
+    </aside>
+    <div class="content-area">
+      <main id="app" tabindex="-1"></main>
 
   <footer class="footer no-print">
-    TEACHERKIT · โอเพนซอร์ส ใช้ฟรี · ข้อมูลทั้งหมดเก็บไว้ในเครื่องของคุณเท่านั้น
+    <span>TEACHER<b>KIT</b> <span class="footer-dot">·</span> เครื่องมือเล็ก ๆ เพื่อคาบเรียนที่ดีขึ้น</span>
+    <span>ใช้ฟรี · ไม่ต้องสมัคร · ข้อมูลเก็บในเครื่อง</span>
   </footer>
+    </div>
+  </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
+

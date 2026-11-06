@@ -1,6 +1,8 @@
 export const $ = (sel, root = document) => root.querySelector(sel);
 export const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
+export const uiIcon = name => `<svg class="ui-icon" aria-hidden="true"><use href="#ui-${name}"/></svg>`;
+
 export function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -111,3 +113,4 @@ export function pageHead(title, extra = '') {
     <div class="row">${extra}</div>
   </div>`;
 }
+
