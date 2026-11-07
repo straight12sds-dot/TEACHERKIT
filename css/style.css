@@ -19,6 +19,7 @@
   --board-ink: #ffffff;
   --print-bg: #ffffff;
   --print-text: #171717;
+  --ocr-paper: #ffffff;
   --shadow: 0 2px 8px rgba(36, 40, 74, .03);
   --shadow-raised: 0 8px 28px rgba(36, 40, 74, .08);
   --radius: 18px;
@@ -362,6 +363,31 @@ td input[type="number"] { width: 80px; }
 
 .empty-state { text-align: center; padding: 42px 20px; color: var(--muted); }
 
+/* Scan a paper roster, review it, then reuse the existing class data format. */
+.roster-scanner { margin-bottom: 24px; padding: 0; border-color: color-mix(in srgb, var(--primary) 25%, var(--border)); }
+.roster-scanner > summary { display: flex; align-items: center; gap: 14px; padding: 20px 24px; list-style: none; }
+.roster-scanner > summary::-webkit-details-marker { display: none; }
+.roster-scan-icon { display: grid; place-items: center; width: 46px; height: 46px; flex-shrink: 0; border-radius: 12px; background: var(--primary-soft); font-size: 1.4rem; }
+.roster-scanner summary b { display: block; font-weight: 500; }
+.roster-scanner summary small { display: block; margin-top: 3px; color: var(--muted); font-size: .75rem; }
+.roster-scan-open { color: var(--primary); font-size: .75rem; margin-left: auto; white-space: nowrap; }
+.roster-scanner[open] .roster-scan-open { display: none; }
+.roster-scan-body { padding: 24px; border-top: 1px solid var(--border); }
+.roster-scan-body > p { margin-bottom: 0; }
+.roster-language { margin-left: auto; }
+.roster-image { max-width: 640px; }
+.roster-image-frame { display: grid; place-items: center; height: 240px; overflow: hidden; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-2); }
+.roster-image img { max-width: 100%; max-height: 220px; object-fit: contain; }
+.roster-image .row { margin-top: 10px; }
+#rosterFileName { overflow-wrap: anywhere; flex: 1 1 150px; }
+.roster-progress progress { width: 100%; height: 12px; accent-color: var(--primary); }
+.roster-status { color: var(--primary); overflow-wrap: anywhere; }
+#rosterNames { min-height: 180px; }
+#rosterCount { color: var(--primary); }
+.roster-create { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; padding-top: 20px; border-top: 1px solid var(--border); }
+.roster-create .field { flex: 1 1 200px; }
+.roster-create-note { line-height: 1.8; }
+
 @media (min-width: 1041px) and (max-width: 1280px) {
   .grid-2 { grid-template-columns: 1fr; }
   .hero { padding: 26px; gap: 20px; }
@@ -440,6 +466,14 @@ td input[type="number"] { width: 80px; }
   .tool-arrow { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
   .tool-category { display: none; }
   .card { padding: 18px; border-radius: 14px; }
+  .roster-scanner { padding: 0; }
+  .roster-scanner > summary { padding: 16px; gap: 10px; }
+  .roster-scanner summary b { font-size: .85rem; }
+  .roster-scanner summary small { font-size: .68rem; }
+  .roster-scan-open { display: none; }
+  .roster-scan-body { padding: 18px; }
+  .roster-language { margin-left: 0; width: 100%; }
+  .roster-create .btn { width: 100%; }
   .row > .field { flex-basis: 100% !important; }
   .row > label:not(.field):not(.check) { max-width: 100%; }
   .btn-sm { min-height: 44px; }

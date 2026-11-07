@@ -1,16 +1,20 @@
 import { state, save, currentClass, addClass, deleteClass, setCurrent, uid, exportAll, importAll } from '../store.js';
 import { esc, parseNames, pageHead, toast, download, todayISO } from '../util.js';
+import { mountRosterScanner } from '../roster-scanner.js';
 
 export default {
   id: 'classes',
   icon: '👥',
   title: 'จัดการห้องเรียน',
-  desc: 'เพิ่มห้อง วางรายชื่อนักเรียนจาก Excel สำรอง/นำเข้าข้อมูล',
+  desc: 'เพิ่มห้อง สแกนใบรายชื่อจากรูป วางรายชื่อจาก Excel สำรอง/นำเข้าข้อมูล',
   render(el) {
+    let cleanupScanner = null;
     function draw() {
+      cleanupScanner?.();
       const c = currentClass();
       el.innerHTML = `
         ${pageHead('👥 จัดการห้องเรียน', `<button class="btn btn-primary" data-act="new">➕ เพิ่มห้องใหม่</button>`)}
+        <div id="rosterScanner"></div>
         <div class="grid grid-2">
           <div class="card stack">
             <h2>ห้องเรียนทั้งหมด</h2>
@@ -53,6 +57,19 @@ export default {
       const count = el.querySelector('#count');
       const upd = () => { count.textContent = `${parseNames(ta.value).length} คน`; };
       ta.addEventListener('input', upd); upd();
+      cleanupScanner = mountRosterScanner(el.querySelector('#rosterScanner'), {
+        onAppend(names) {
+          ta.value = [ta.value.trim(), names.join('\n')].filter(Boolean).join('\n');
+          ta.dispatchEvent(new Event('input'));
+          ta.focus();
+        },
+        onCreate(name, names) {
+          addClass(name, names);
+          draw();
+          toast(`สร้างห้อง ${name} พร้อมรายชื่อ ${names.length} คนแล้ว`);
+          el.querySelector('#cnames').focus();
+        },
+      });
     }
 
     function saveCurrent() {
@@ -97,5 +114,7 @@ export default {
     });
 
     draw();
+    return () => cleanupScanner?.();
   },
 };
+
